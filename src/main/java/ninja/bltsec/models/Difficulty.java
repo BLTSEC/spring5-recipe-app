@@ -1,4 +1,4 @@
-package ninja.bltsec.domain;
+package ninja.bltsec.models;
 
 public enum Difficulty {
 
