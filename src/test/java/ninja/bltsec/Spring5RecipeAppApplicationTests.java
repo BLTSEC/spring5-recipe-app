@@ -1,4 +1,4 @@
-package guru.springframework;
+package ninja.bltsec;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
