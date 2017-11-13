@@ -1,5 +1,6 @@
 package ninja.bltsec.controllers;
 
+import lombok.extern.slf4j.Slf4j;
 import ninja.bltsec.models.Category;
 import ninja.bltsec.models.UnitOfMeasure;
 import ninja.bltsec.repositories.CategoryRepository;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Optional;
 
+@Slf4j
 @Controller
 public class IndexController {
 
@@ -22,7 +24,7 @@ public class IndexController {
 
     @RequestMapping({"", "/", "/index"})
     public String getIndexPage(Model model) {
-
+        log.debug("Getting Index page");
         model.addAttribute("recipes", recipeService.getRecipes());
 
         return "index";
