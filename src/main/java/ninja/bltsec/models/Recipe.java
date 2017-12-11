@@ -27,6 +27,8 @@ public class Recipe {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients = new HashSet<>();
 
+    // Hibernate recommends using the boxing Byte (primitive wrapper) type
+    // and not the primitive because, prims can't be null
     @Lob
     private Byte[] image;
 

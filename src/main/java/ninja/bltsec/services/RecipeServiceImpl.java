@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import ninja.bltsec.commands.RecipeCommand;
 import ninja.bltsec.converters.RecipeCommandToRecipe;
 import ninja.bltsec.converters.RecipeToRecipeCommand;
+import ninja.bltsec.exceptions.NotFoundException;
 import ninja.bltsec.models.Recipe;
 import ninja.bltsec.repositories.RecipeRepository;
 import org.springframework.stereotype.Service;
@@ -40,7 +41,8 @@ public class RecipeServiceImpl implements RecipeService {
         Optional<Recipe> recipeOptional = recipeRepository.findById(l);
 
         if (!recipeOptional.isPresent()) {
-            throw new RuntimeException("Recipe Not Found!");
+            //throw new RuntimeException("Recipe Not Found!");
+            throw new NotFoundException("Recipe Not Found. For ID value: " + l);
         }
 
         return recipeOptional.get();
